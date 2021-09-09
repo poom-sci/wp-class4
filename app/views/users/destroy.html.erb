@@ -1,0 +1,10 @@
+<h1>Deleted User</h1>
+name:
+<%= @deleted_user.name %>
+<br/>
+email:
+<%= @deleted_user.email  %>
+<br/>
+
+<%= link_to 'Show All Users', users_path %> |
+<%= link_to 'Recover', "/create_fast?name=#{@deleted_user.name}&email=#{@deleted_user.email}" %>
