@@ -1,0 +1,17 @@
+
+ 
+
+<p id="alert"><%= alert %></p>
+<%= form_tag '/login' %>
+
+<div class="field box">
+Username: <%=text_field_tag :email%>
+</div>
+
+<div class="field box">
+Pass: <%=text_field_tag :pass%>
+</div>
+
+
+    <%= submit_tag "login" %>
+  </div>

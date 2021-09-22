@@ -21,9 +21,40 @@
 </p>
 
 <p>
+  <strong>Pass:</strong>
+  <%= @user.pass %>
+</p>
+
+<p>
   <strong>Birthdate:</strong>
   <%= @user.birthdate %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path %> |
+<%= link_to 'New post', new_post_path(:id=>@user.id) %>
+
+<br/>
+<br/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order</th>
+      <th>Msg</th>
+      <th>Date</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.posts.each.with_index()  do |post,index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= post.msg %></td>
+        <td><%= post.date %></td>
+        <td><%= link_to 'Edit', edit_post_path(post)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

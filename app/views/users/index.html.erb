@@ -7,9 +7,10 @@
     <tr>
       <th>Email</th>
       <th>Name</th>
-      <th>Birthdate</th>
+      <th>Pass</th>
       <th>Address</th>
       <th>Postal_code</th>
+      <th>Birthdate</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,6 +22,7 @@
         <td><%= user.name %></td>
         <td><%= user.address %></td>
         <td><%= user.postal_code %></td>
+        <td><%= user.pass %></td>
         <td><%= user.birthdate %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>

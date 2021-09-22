@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :posts
+  get 'main',to:"main#main"
+  post 'login',to:"main#login"
   resources :users
   get 'create_fast', to:"users#create_fast"
 
