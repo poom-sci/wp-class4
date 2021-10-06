@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-  before_action :authentication , only: %i[show edit update destroy  ]
+  before_action :authentication , only: %i[show edit update destroy index ]
   before_action :validate_post , only: %i[create ]
   # GET /posts or /posts.json
   def index

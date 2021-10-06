@@ -3,7 +3,7 @@ class MainController < ApplicationController
     before_action :set_user, only: %i[ main ]
 
   def main
-  
+    session[:user_id]=nil
   end
 
   def login
