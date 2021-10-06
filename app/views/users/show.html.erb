@@ -20,10 +20,6 @@
   <%= @user.postal_code %>
 </p>
 
-<p>
-  <strong>Pass:</strong>
-  <%= @user.pass %>
-</p>
 
 <p>
   <strong>Birthdate:</strong>
@@ -31,7 +27,7 @@
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %> |
+<!-- <%= link_to 'Back', users_path %> | -->
 <%= link_to 'New post', new_post_path(:id=>@user.id) %>
 
 <br/>

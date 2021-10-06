@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-
+  before_action :authentication , only: %i[show edit update destroy  ]
+  before_action :validate_post , only: %i[create ]
   # GET /posts or /posts.json
   def index
     @posts = Post.all
@@ -15,7 +16,6 @@ class PostsController < ApplicationController
     @post = Post.new
     @post.user_id=Integer(params[:id])
     @user=User.find(Integer(params[:id]))
-    
   end
 
   # GET /posts/1/edit
@@ -66,6 +66,26 @@ class PostsController < ApplicationController
   end
 
   private
+
+    def authentication
+      if @post  && session[:user_id]==@post.user_id
+        return true
+      else
+        redirect_to main_path
+        return false
+      end
+    end
+
+    def validate_post
+      @post = Post.new(post_params) 
+      if session[:user_id]==@post.user_id
+        return true
+      else
+        redirect_to main_path
+        return false
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
