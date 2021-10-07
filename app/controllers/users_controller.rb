@@ -82,7 +82,7 @@ class UsersController < ApplicationController
       if @user  && session[:user_id]==@user.id
         return true
       else
-        redirect_to main_path
+        redirect_to main_path, alert: "Please login."
         return false
       end
     end

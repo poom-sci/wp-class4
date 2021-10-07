@@ -68,21 +68,25 @@ class PostsController < ApplicationController
   private
 
     def authentication
+      respond_to do |format|
       if @post  && session[:user_id]==@post.user_id
         return true
       else
-        redirect_to main_path
+        redirect_to main_path, alert: "Please login with right user."
         return false
+        end
       end
     end
 
     def validate_post
       @post = Post.new(post_params) 
+      respond_to do |format|
       if session[:user_id]==@post.user_id
         return true
       else
-        redirect_to main_path
+        redirect_to main_path, alert: "Please login with right user."
         return false
+        end
       end
     end
 
